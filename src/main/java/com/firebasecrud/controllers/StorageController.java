@@ -21,23 +21,23 @@ public class StorageController {
 	@Autowired
 	private StorageService service;
 	
-	private static final Logger logger = LoggerFactory.getLogger(StorageController.class);
+//	private static final Logger logger = LoggerFactory.getLogger(StorageController.class);
 
 	@PostMapping("/profile/pic")
     public Object upload(@RequestParam("file") MultipartFile multipartFile) {
-        logger.info("HIT -/upload | File Name : {}", multipartFile.getOriginalFilename());
+//        logger.info("HIT -/upload | File Name : {}", multipartFile.getOriginalFilename());
         return service.upload(multipartFile);
     }
 
     @PostMapping("/profile/pic/{fileName}")
     public Object download(@PathVariable String fileName) throws IOException {
-        logger.info("HIT -/download | File Name : {}", fileName);
+//        logger.info("HIT -/download | File Name : {}", fileName);
         return service.download(fileName);
     }
     
     @PostMapping("/profile/pic/delete/{fileName}")
     public Object delete(@PathVariable String fileName) throws IOException {
-        logger.info("HIT -/delete | File Name : {}", fileName);
+//        logger.info("HIT -/delete | File Name : {}", fileName);
         return service.delete(fileName);
     }
 }
